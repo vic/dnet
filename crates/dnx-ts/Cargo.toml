@@ -1,0 +1,22 @@
+[package]
+name = "dnx-ts"
+version = "0.1.0"
+edition.workspace = true
+
+# Tree-sitter front-end spike. The whole tree-sitter path is behind the
+# `tree-sitter` feature, OFF by default: tree-sitter pulls a C grammar (cc at
+# build time), which conflicts with dnx's single static-musl binary goal. With
+# the feature off, this crate compiles to nothing and adds zero C to the default
+# build; turn it on (`--features tree-sitter`) only to exercise the spike.
+[features]
+default = []
+tree-sitter = ["dep:tree-sitter", "dep:tree-sitter-json"]
+
+[dependencies]
+dnx-ast = { path = "../dnx-ast" }
+dnx-core = { path = "../dnx-core" }
+dnx-elab = { path = "../dnx-elab" }
+dnx-read = { path = "../dnx-read" }
+dnx-lang = { path = "../dnx-lang" }
+tree-sitter = { version = "0.24", optional = true }
+tree-sitter-json = { version = "0.24", optional = true }

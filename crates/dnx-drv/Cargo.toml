@@ -1,0 +1,9 @@
+[package]
+name = "dnx-drv"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+dnx-core = { path = "../dnx-core" }
+dnx-store = { path = "../dnx-store" }
+dnx-lang = { path = "../dnx-lang" }

@@ -1,0 +1,20 @@
+[package]
+name = "dnx-bench"
+version = "0.1.0"
+edition.workspace = true
+publish = false
+
+# Measurement-only crate: builds nets through the PUBLIC APIs of the runtime
+# crates and times them. It contains no library — the bench is a `--release`
+# example so the optimizer is on for honest numbers.
+[dependencies]
+dnx-core = { path = "../dnx-core" }
+dnx-sched = { path = "../dnx-sched" }
+dnx-dist = { path = "../dnx-dist" }
+
+[dev-dependencies]
+criterion = { version = "0.5", features = ["html_reports"] }
+
+[[bench]]
+name = "marquee"
+harness = false

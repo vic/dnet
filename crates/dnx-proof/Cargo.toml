@@ -1,0 +1,11 @@
+[package]
+name = "dnx-proof"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+dnx-core = { path = "../dnx-core" }
+dnx-ast  = { path = "../dnx-ast" }
+dnx-elab = { path = "../dnx-elab" }
+dnx-read = { path = "../dnx-read" }
+dnx-sched = { path = "../dnx-sched" }

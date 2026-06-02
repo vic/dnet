@@ -1,0 +1,18 @@
+[package]
+name = "dnx"
+version = "0.1.0"
+edition.workspace = true
+
+[[bin]]
+name = "dnx"
+path = "src/main.rs"
+
+[dependencies]
+dnx-lang = { path = "../dnx-lang" }
+dnx-pyparse = { path = "../dnx-pyparse" }
+dnx-flake = { path = "../dnx-flake" }
+dnx-drv = { path = "../dnx-drv" }
+dnx-store = { path = "../dnx-store" }
+dnx-core = { path = "../dnx-core" }
+dnx-test = { path = "../dnx-test" }
+dnx-daemon = { path = "../dnx-daemon" }

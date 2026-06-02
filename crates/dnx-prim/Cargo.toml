@@ -1,0 +1,8 @@
+[package]
+name = "dnx-prim"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+dnx-ast = { path = "../dnx-ast" }
+dnx-core = { path = "../dnx-core" }

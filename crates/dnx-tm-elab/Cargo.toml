@@ -1,0 +1,7 @@
+[package]
+name = "dnx-tm-elab"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+dnx-proof = { path = "../dnx-proof" }

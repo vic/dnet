@@ -1,0 +1,7 @@
+# Seeds for failure cases proptest has generated in the past. It is
+# automatically read and these particular cases re-run before any
+# novel cases are generated.
+#
+# It is recommended to check this file in to source control so that
+# everyone who runs the test benefits from these saved cases.
+cc 9864fef7a0fc861a001ba11ee5a44f2d851caa2563b935c38f32adc36b4af611 # shrinks to db = Abs(Abs(Var(0)))

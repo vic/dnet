@@ -1,0 +1,19 @@
+[package]
+name = "dnx-pyparse"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+dnx-ast = { path = "../dnx-ast" }
+dnx-core = { path = "../dnx-core" }
+dnx-elab = { path = "../dnx-elab" }
+dnx-prim = { path = "../dnx-prim" }
+dnx-read = { path = "../dnx-read" }
+dnx-lang = { path = "../dnx-lang" }
+
+# dev-only: prove a Python-built derivation and the equivalent Nix one
+# instantiate to the byte-identical drvPath (the same-store-hash beat). Both
+# are first-party workspace crates the CLI (`dnx`) already depends on.
+[dev-dependencies]
+dnx-drv = { path = "../dnx-drv" }
+dnx-store = { path = "../dnx-store" }

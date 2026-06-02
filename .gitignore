@@ -1,0 +1,20 @@
+# Rust build artifacts
+target/
+**/target/
+
+# Node / docs site (Astro)
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.astro/
+**/.astro/
+
+# Nix
+result
+result-*
+
+# Editor / OS
+.DS_Store
+*.swp
+*.tmp

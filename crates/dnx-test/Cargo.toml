@@ -1,0 +1,20 @@
+[package]
+name = "dnx-test"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+dnx-lang = { path = "../dnx-lang" }
+rayon = "1"
+# Sibling path crate (already in the build graph via dnx-lang). Needed so the
+# directory scanner can bucket a buried `Elaborate(DnxError::LinError)` as a
+# linearity failure by matching the typed variant, not by message text.
+dnx-core = { path = "../dnx-core" }
+
+[dev-dependencies]
+# The never-recompute cache primitive lives in dnx-dist; the dnx-test runner's
+# own cache is source-keyed (dnx-dist's content-addressed cache hashes the
+# result net, which is not yet defined for scalar/prim normal forms —
+# canonical_hash.rs:193). This dev-dep exercises the dnx-dist primitive on the
+# prim-free path it does support, as the cited never-recompute oracle.
+dnx-dist = { path = "../dnx-dist" }
