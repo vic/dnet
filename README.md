@@ -9,13 +9,62 @@
 
 > dnx and [vic](https://bsky.app/profile/oeiuwq.bsky.social)'s [nix libs](https://dendritic.oeiuwq.com) made for you with Love++. If you like my work, consider [sponsoring](#sustaining-dnx).
 
-# δ-nx, one optimal engine for reproducible builds, multi language, verifiable and distributable computations.
+# δ-nx, One binary. Any machine. Optimal by design.
+
+An optimal engine for reproducible builds, multi language, verifiable and distributable computations.
 
 **Why:** I got a fever dream about package managers, language runtimes, and proof assistants are secretly the *same* problem, the deterministic evaluation of content-addressed expressions, and a single, mathematically grounded engine can serve all three.
 
 `dnx` is that engine. One rootless Rust binary on top of **Δ-Nets**: an interaction-net model that reduces programs **optimally** (never the same work twice), **in parallel by construction**, with **perfect confluence**. The same core that builds your packages runs more than one language, remembers work by its *meaning*, and machine-checks proofs about it.
 
 > [design docs](https://github.com/denful/dnx/tree/design) · [slides from docs](https://notebooklm.google.com/notebook/6f8ed0c7-be75-4dd4-a531-82c7b137c9fd/artifact/6d0cc028-e56d-4efe-9686-5f7d4a0fc646)
+
+
+## Why this matters
+
+Today's stack pays the same costs over and over: rebuilds that redo old work, test runs that
+re-test the unchanged, parallel code that costs months of engineering, caches that lie, and
+verification tools too slow to trust at scale. dnx collapses these into one substrate where
+sharing, parallelism, determinism, and verification are the default physics.
+
+dnx is a new kind of execution engine. Programs don't run as instruction streams — they run as
+interaction nets, a model of computation where sharing, parallelism, and correctness are
+properties of the substrate itself, not features bolted on top.
+
+## What becomes possible
+
+**Never compute the same thing twice.**
+The engine shares work by *meaning*, not by name or by file. Two computations that overlap
+partially share their overlap — automatically, at any granularity, across runs. Builds, test
+suites, and incremental workflows stop re-paying for work any other machine has already done.
+
+**Parallel by construction.**
+No threads, no locks, no annotations. Independent work in a program *is* independent in the
+engine, and scales across CPU cores and onto GPUs from the same source. The same program,
+unchanged, uses whatever hardware is underneath in the most optimal way.
+
+**One result, always.**
+The engine is confluent: every execution order reaches the same answer. Parallelism without
+heisenbugs. Caching without invalidation anxiety. Reproducibility as a mathematical property,
+not an aspiration.
+
+**Real languages, not a toy calculus.**
+The engine runs full functional programs — unrestricted higher-order functions, laziness,
+recursion, infinite structures — where prior interaction-net runtimes restrict the language to
+fit the machine. We made the machine fit the language.
+
+**Nix, finally fast.**
+dnx runs real Nix projects as its first frontend. Purity is enforced by construction: all
+impurity is contained as declared effects, so caching stays sound and evaluation parallelizes.
+Existing test suites of real open-source Nix projects are our acceptance gates.
+
+**Mathematics, machine-checked by an independent kernel.**
+The same engine doubles as a proof checker. It loads already-compiled Lean 4 / mathlib
+libraries directly — no Lean toolchain required — and re-verifies the proofs through its own
+minimal kernel. Proof checking inherits the engine's speed: heavy computational proofs are
+exactly the workload optimal sharing accelerates. Our public ladder of verified theorems runs
+from the Pythagorean theorem to the Four-Color theorem.
+
 
 ---
 
